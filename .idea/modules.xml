@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/missions_analysis_orb_mech.iml" filepath="$PROJECT_DIR$/.idea/missions_analysis_orb_mech.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mission-analysis-assignment.iml" filepath="$PROJECT_DIR$/.idea/mission-analysis-assignment.iml" />
     </modules>
   </component>
 </project>
