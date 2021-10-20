@@ -132,21 +132,13 @@ def eccentric_anomaly_to_delta_t(E, e, a):
     return (E - e * np.sin(E)) / np.sqrt(G_EARTH / np.power(a, 3))
 
 
-def delta_theta_to_delta_t(theta1, theta2, e, a):
+def delta_theta_to_delta_t(theta, e, a):
     """
-        Calculates time difference between satellite position theta1 and theta2, for a given orbit (e and a)
-            = (t-t0) of theta2 - (t-t0) of theta1
-    :param theta1: true anomaly in radians - first point
-    :param theta2: true anomaly in radians - second point
+        Calculates time difference between satellite position theta and apogee, for a given orbit (e and a)
+            = (t-t0) of theta
+    :param theta: true anomaly in radians
     :param e: eccentricity
     :param a: semi-major axis, in km
     :return: time difference between passage at theta1 and theta2, in seconds
     """
-
-    E1 = theta_to_eccentric_anomaly(theta1, e)
-    delta_t_1 = eccentric_anomaly_to_delta_t(E1, e, a)
-
-    E2 = theta_to_eccentric_anomaly(theta2, e)
-    delta_t_2 = eccentric_anomaly_to_delta_t(E2, e, a)
-
-    return delta_t_2 - delta_t_1
+    return eccentric_anomaly_to_delta_t(theta_to_eccentric_anomaly(theta, e), e, a)
